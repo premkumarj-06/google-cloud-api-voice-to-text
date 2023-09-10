@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="main.js"> </script>
+
+</head>
+
+<body>
+    
+    </p>
+    <textarea id="text_are_content" name="story" rows="5" cols="33" placeholder="You Transcribe goes here">
+</textarea>
+
+    <div id="controllers">
+        <p> Select one from the given options:
+            <select id="region">
+                <option value="af-ZA">Afrikaans (South Africa)</option>
+                <option value="am-ET">Amharic (Ethiopia)</option>
+                <option value="hy-AM">Armenian (Armenia)</option>
+                <option value="az-AZ">Azerbaijani (Azerbaijan)</option>
+                <option value="bn-BD">Bengali (Bangladesh)</option>
+                <option value="bn-IN">Bengali (India)</option>
+                <option value="bs-BA">Bosnian (Bosnia and Herzegovina)</option>
+                <option value="bg-BG">Bulgarian (Bulgaria)</option>
+                <option value="my-MM">Burmese (Myanmar)</option>
+                <option value="ca-ES">Catalan (Spain)</option>
+                <option value="yue-Hant-HK">Chinese, Cantonese (Traditional, Hong Kong)</option>
+                <option value="zh-CN">Chinese, Mandarin (Simplified, China)</option>
+                <option value="zh-TW">Chinese, Mandarin (Traditional, Taiwan)</option>
+                <option value="hr-HR">Croatian (Croatia)</option>
+                <option value="cs-CZ">Czech (Czech Republic)</option>
+                <option value="da-DK">Danish (Denmark)</option>
+                <option value="nl-BE">Dutch (Belgium)</option>
+                <option value="nl-NL">Dutch (Netherlands)</option>
+                <option value="en-AU">English (Australia)</option>
+                <option value="en-CA">English (Canada)</option>
+                <option value="en-GH">English (Ghana)</option>
+                <option value="en-HK">English (Hong Kong SAR)</option>
+                <option value="en-IN" selected>English (India)</option>
+                <option value="en-IE">English (Ireland)</option>
+                <option value="en-KE">English (Kenya)</option>
+                <option value="en-NZ">English (New Zealand)</option>
+                <option value="en-NG">English (Nigeria)</option>
+                <option value="en-PH">English (Philippines)</option>
+                <option value="en-SG">English (Singapore)</option>
+                <option value="en-ZA">English (South Africa)</option>
+                <option value="en-TZ">English (Tanzania)</option>
+                <option value="en-GB">English (United Kingdom)</option>
+                <option value="en-US">English (United States)</option>
+                <option value="et-EE">Estonian (Estonia)</option>
+                <option value="fil-PH">Filipino (Philippines)</option>
+                <option value="fi-FI">Finnish (Finland)</option>
+                <option value="fr-BE">French (Belgium)</option>
+                <option value="fr-CA">French (Canada)</option>
+                <option value="fr-FR">French (France)</option>
+                <option value="fr-CH">French (Switzerland)</option>
+                <option value="gl-ES">Galician (Spain)</option>
+                <option value="ka-GE">Georgian (Georgia)</option>
+                <option value="de-AT">German (Austria)</option>
+                <option value="ro-RO">Romanian (Romania)</option>
+                <option value="ru-RU">Russian (Russia)</option>
+                <option value="ru-UA">Russian (Ukraine)</option>
+                <option value="sr-RS">Serbian (Serbia)</option>
+                <option value="si-LK">Sinhala (Sri Lanka)</option>
+                <option value="sk-SK">Slovak (Slovakia)</option>
+                <option value="sl-SI">Slovenian (Slovenia)</option>
+                <option value="es-AR">Spanish (Argentina)</option>
+                <option value="es-BO">Spanish (Bolivia)</option>
+                <option value="es-CL">Spanish (Chile)</option>
+                <option value="es-CO">Spanish (Colombia)</option>
+                <option value="es-CR">Spanish (Costa Rica)</option>
+                <option value="es-DO">Spanish (Dominican Republic)</option>
+                <option value="es-EC">Spanish (Ecuador)</option>
+                <option value="es-SV">Spanish (El Salvador)</option>
+                <option value="es-GT">Spanish (Guatemala)</option>
+                <option value="es-HN">Spanish (Honduras)</option>
+                <option value="es-MX">Spanish (Mexico)</option>
+                <option value="es-NI">Spanish (Nicaragua)</option>
+                <option value="es-PA">Spanish (Panama)</option>
+                <option value="es-PY">Spanish (Paraguay)</option>
+                <option value="es-PE">Spanish (Peru)</option>
+                <option value="es-PR">Spanish (Puerto Rico)</option>
+                <option value="es-ES">Spanish (Spain)</option>
+                <option value="es-US">Spanish (United States)</option>
+                <option value="es-UY">Spanish (Uruguay)</option>
+                <option value="es-VE">Spanish (Venezuela)</option>
+                <option value="su-ID">Sundanese (Indonesia)</option>
+                <option value="sw-KE">Swahili (Kenya)</option>
+                <option value="sw-TZ">Swahili (Tanzania)</option>
+                <option value="sv-SE">Swedish (Sweden)</option>
+                <option value="ta-IN">Tamil (India)</option>
+                <option value="ta-SG">Tamil (Singapore)</option>
+                <option value="ta-LK">Tamil (Sri Lanka)</option>
+                <option value="te-IN">Telugu (India)</option>
+                <option value="th-TH">Thai (Thailand)</option>
+                <option value="tr-TR">Turkish (Turkey)</option>
+                <option value="uk-UA">Ukrainian (Ukraine)</option>
+                <option value="ur-IN">Urdu (India)</option>
+                <option value="ur-PK">Urdu (Pakistan)</option>
+                <option value="uz-UZ">Uzbek (Uzbekistan)</option>
+                <option value="vi-VN">Vietnamese (Vietnam)</option>
+                <option value="zu-ZA">Zulu (South Africa)</option>
+            </select>
+        <button id="record" onclick="{start_recording()}">Start Transcribe</button>
+        <button id="stop" onclick="{stop_recording()}">Stop Transcribe</button>
+        <!-- <p id="status"></p> -->
+    </div>
+</body>
+<style>
+    html{
+        font-family: Arial, Helvetica, sans-serif;
+        /* background-color: #e8f1fb; */
+    }
+    
+    #controllers {
+        margin-top: 24px;
+        right: 40%;
+    }
+    #region{
+        padding: 16px;
+        margin-right: 24px;
+        border-radius: 8px;
+        width: auto;
+        margin-bottom: 16px;
+
+    }
+    #text_are_content {
+        padding: 16px;
+        height: 200px;
+        width: 80%;
+        display: flex;
+        border-radius: 8px;
+        border: 2px solid grey;
+    }
+    #record{
+        /* background-color: #3e82da; */
+        padding-right:24px;
+        padding-left:24px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-radius: 8px;
+        border: 1px solid black;
+        flex-flow: row;
+        /* color: #fff; */
+    }
+    #stop{
+        /* background-color: #f9626a; */
+        padding-right:24px;
+        padding-left:24px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-radius: 8px;
+        border: 1px solid black;
+        /* color: #fff; */
+    }
+</style>
+
+</html>
